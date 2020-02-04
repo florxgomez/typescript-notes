@@ -213,9 +213,50 @@ const { age, name }: { age: number; name: string } = profile;
 const { coords: { lat, long } }: { coords: { lat: number; long: number } } = profile;
 ```
 
+## Arrays
+Each element is some consistent type of value. We use typed arrays any time we need to represent a collection of records with some arbitrary sort order.
 
+* TS can do type inference when extracting value from an array
+* TS can prevent us from adding incompatible values to the array
+* We can get help with map, forEach, reduce functions
+```typescript
+carMakers.map((car: string): string => {
+    return car.toUpperCase();
+})
+```
+* Flexible - arrays can still contain multiple different types
+```typescript
+const importantDates: (Date | string)[] = [new Date(), '2030-10-10'];
+```
 
+## Tuples
+Array-like structure where each element represents some property of a record. The order of the elements have an specific meaning.
+```typescript
+type Drink = [string, boolean, number];
+const pepsi: Drink = ['brown', true, 40];
+```
+## Interfaces
+Creates a new type, describing the property names and value types of an object
+```typescript
+interface Vehicle {
+    name: string;
+    year: number;
+    broken: boolean;
+}
 
+const oldCivic = {
+    name: 'civic',
+    year: 2000,
+    broken: true
+};
 
+const printVehicle = (vehicle: Vehicle): void => {
+    console.log(`Name: ${vehicle.name}`);
+    console.log(`Year: ${vehicle.year}`);
+    console.log(`Broken: ${vehicle.broken}`);
+};
+
+printVehicle(oldCivic);
+```
 
 
