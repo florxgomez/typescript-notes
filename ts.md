@@ -116,13 +116,103 @@ If **declaration and initialization** are on the same line, Typescript will figu
 
 ### When to use type annotations?
 * When we declare a variable on one line and then initialize later
+
+```typescript
+let words = ['red', 'green', 'blue'];
+let foundWord: boolean;
+
+for(let i = 0; i < words.length; i++){
+    if(words[i] === 'green'){
+        foundWord = true;
+    }
+}
+```
 * When we want a variable to have a type that can't be inferred
+```typescript
+let nums = [-10,-1,12];
+let numbAboveZero: boolean | number = false;
+
+for(let num of nums){
+    if(num > 0){
+        numbAboveZero = num;
+    }
+}
+```
 * When a function returns the 'any' type and we need to clarify the value
+
+```typescript
+const json = '{"x": 10, "y": 20}'
+const coordinates: {x: number; y: number} = JSON.parse(json); //any - ts doesn't know which type JSON.parse will return
+console.log(coordinates); // {x: 10, y: 20};
+```
 
 ### The 'Any' type
 * It is a type, just a string or boolean are
 * Means TS has no idea what this is - can't check for correct property references
 * **Avoid variables with 'any' at all costs** 
+
+### Type annotations for functions
+Code we add to tell TS what **type of arguments** a function will receive and what **type of values it will return**
+
+### Type inference for functions
+* TS tries to figure out what type of value a function will return
+* There is NO type inference for arguments
+* Type inference works out on output, but we won't use it
+
+```typescript
+const add = (a: number, b: number): number => {
+  return a + b;
+}
+
+function divide(a: number, b: number ): number {
+    return a / b;
+}
+
+//not returning value from a function
+const logger = (message: srtring) : void => {
+    console.log(message)
+}
+
+//not returning anything from the function
+
+const throwError = (message: string): never => {
+    throw new Error(message)
+}
+```
+
+**Destructuring with annotations**
+```typescript
+const todaysWeather = {
+    date: new Date(),
+    weather: 'sunny'
+};
+
+const logWeather = ({ date, weather }: { date: Date, weather: string}): void => {
+    console.log(date);
+    console.log(weather);
+}
+
+logWeather(todaysWeather);
+```
+
+### Annotations around Objects
+```typescript
+const profile = {
+    name: 'alex',
+    age: 20,
+    coords: {
+        lat: 0,
+        long: 15
+    },
+    setAge(age: number): void {
+        this.age = age;
+    }
+};
+
+const { age, name }: { age: number; name: string } = profile;
+const { coords: { lat, long } }: { coords: { lat: number; long: number } } = profile;
+```
+
 
 
 
