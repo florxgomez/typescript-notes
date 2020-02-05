@@ -204,11 +204,8 @@ Creates a new type, describing the property names and value types of an object
 Blueprint to create an object with some fields (values) and methods (functions) to represent a 'thing'
 
 ### Instance method modifiers
+The goal is not restrict access to diferent functions or variables
 * public -> this method can be called anywhere, any time
 * private -> this method can only be called by other methods in this class
 * protected -> this method can be called by other methods in this class, or by other methods in child classes
-
-
-
-
 
