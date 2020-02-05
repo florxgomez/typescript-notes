@@ -215,5 +215,13 @@ The goal is not restrict access to diferent functions or variables
 * private -> this method can only be called by other methods in this class
 * protected -> this method can be called by other methods in this class, or by other methods in child classes
 
+## Type definition file
+It is like an adapter between TS code and a JS library we want to work with
+
+When we see the warning: Could not find a declaration file for module '...' we will need a type declaration file
+
+    npm install @types/{library name}
+
+
 
 
