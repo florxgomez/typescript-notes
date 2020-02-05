@@ -12,6 +12,8 @@ Typescript code (Javascript with type annotations) -> Typescript Compiler -> Pla
 ## Typescript compiler installation: tsc
 
     npm install -g typescript ts-node
+    
+    parcel index.html // will convert ts script to js script
 
 index.ts
 ```typescript
@@ -53,6 +55,10 @@ Then we execute:
 Another way of doing both actions at the same time:
 
     ts-node index.ts
+    
+## Tool to help us run TS in the browser
+
+    npm install -g parcel-bundler
 
 ### Type: easy way to refer to the different properties + functions that a value has
 * **Primitive Types**: number, string, boolean, void, undefined, symbol, null
@@ -208,4 +214,6 @@ The goal is not restrict access to diferent functions or variables
 * public -> this method can be called anywhere, any time
 * private -> this method can only be called by other methods in this class
 * protected -> this method can be called by other methods in this class, or by other methods in child classes
+
+
 
