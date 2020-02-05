@@ -222,6 +222,6 @@ When we see the warning: Could not find a declaration file for module '...' we w
 
     npm install @types/{library name}
 
-
+Type definition files extension is `.d.ts`
 
 
