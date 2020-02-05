@@ -62,51 +62,9 @@ Types are used by the Typescript Compiler to analyze our code for errors
 
 Types allow other engineers to understand what values are flowing around our codebase
 
-Types examples:
-```typescript
-const today = new Date();
-
-const person = {
-    age: 20
-};
-
-class Color { }
-const red = new Color();
-```
-
 ## Type annotations + Type Inference
 * A **type annotation** is code we add to tell Typescript what type of value a variable will refer to
 * **Type inference** -> Typescript tries to figure out what type of value a variable refers to
-
-```typescript
-let apples: number = 5;
-let speed: string = 'fast';
-let hasName: boolean = true;
-
-let nothingMuch: null = null;
-let nothing: undefined = undefined;
-
-let now: Date = new Date();
-
-//Array
-let colors: string[] = ['red', 'green', 'blue'];
-let myNumbers: number[] = [1,2,3];
-
-//Class
-class Car {}
-let car: Car = new Car();
-
-//Object literal
-let point: {x: number; y: number} = {
-    x: 10,
-    y: 20
-};
-
-//Functions
-const logNumber: (i: number) => void = (i: number) => {
-    console.log(i);
-}
-```
 
 ### Type Inference
 ```typescript
@@ -237,26 +195,20 @@ const pepsi: Drink = ['brown', true, 40];
 ```
 ## Interfaces
 Creates a new type, describing the property names and value types of an object
-```typescript
-interface Vehicle {
-    name: string;
-    year: number;
-    broken: boolean;
-}
 
-const oldCivic = {
-    name: 'civic',
-    year: 2000,
-    broken: true
-};
+### General strategy for reusable code in TS
+* Create functions that accept arguements that are typed with interfaces (printSummary)
+* Object/classes can decide to 'implement' a given interface to work with a function (oldCivic, drink)
 
-const printVehicle = (vehicle: Vehicle): void => {
-    console.log(`Name: ${vehicle.name}`);
-    console.log(`Year: ${vehicle.year}`);
-    console.log(`Broken: ${vehicle.broken}`);
-};
+## Classes
+Blueprint to create an object with some fields (values) and methods (functions) to represent a 'thing'
 
-printVehicle(oldCivic);
-```
+### Instance method modifiers
+* public -> this method can be called anywhere, any time
+* private -> this method can only be called by other methods in this class
+* protected -> this method can be called by other methods in this class, or by other methods in child classes
+
+
+
 
 
