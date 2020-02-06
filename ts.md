@@ -12,8 +12,6 @@ Typescript code (Javascript with type annotations) -> Typescript Compiler -> Pla
 ## Typescript compiler installation: tsc
 
     npm install -g typescript ts-node
-    
-    parcel index.html // will convert ts script to js script
 
 index.ts
 ```typescript
@@ -59,6 +57,7 @@ Another way of doing both actions at the same time:
 ## Tool to help us run TS in the browser
 
     npm install -g parcel-bundler
+    parcel index.html // will convert ts script to js script
 
 ### Type: easy way to refer to the different properties + functions that a value has
 * **Primitive Types**: number, string, boolean, void, undefined, symbol, null
